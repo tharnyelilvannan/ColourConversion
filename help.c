@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void help() {
+int help()
+{
     printf("Colour Converter\n");
+    return 0;
 }
