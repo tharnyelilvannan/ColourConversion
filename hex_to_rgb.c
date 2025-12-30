@@ -1,31 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int convert_letter_to_num(char);
+int hex_to_dec(char);
 
 int hex_to_rgb(char *hex)
 {
-    char r[2];
-    r[0] = hex[0];
-    r[1] = hex[1];
+    // hex format is XXXXXX
+    int red = (hex_to_dec(hex[0]) * 16) + (hex_to_dec(hex[1]));
+    int green = (hex_to_dec(hex[2]) * 16) + (hex_to_dec(hex[3]));
+    int blue = (hex_to_dec(hex[4]) * 16) + (hex_to_dec(hex[5]));
 
-    char g[2];
-    g[0] = hex[2];
-    g[1] = hex[3];
-
-    char b[2];
-    b[0] = hex[4];
-    b[1] = hex[5];
-
-    int red = (convert_letter_to_num(r[0]) * 16) + (convert_letter_to_num(r[1]));
-    int green = (convert_letter_to_num(g[0]) * 16) + (convert_letter_to_num(g[1]));
-    int blue = (convert_letter_to_num(b[0]) * 16) + (convert_letter_to_num(b[1]));
+    if (red == -1 || green == -1 || blue == -1)
+    {
+        return -1;
+    }
 
     printf("(%d, %d, %d)\n", red, green, blue);
     return 0;
 }
 
-int convert_letter_to_num(char letter)
+int hex_to_dec(char letter)
 {
     switch (letter)
     {
@@ -62,6 +56,6 @@ int convert_letter_to_num(char letter)
     case 'F':
         return 15;
     default:
-        break;
+        return -1;
     }
 }
