@@ -22,7 +22,13 @@ int main(int argc, char *argv[])
         if (strcmp(argv[3], "-rgb") == 0)
         {
             char *hex = (char *)argv[2];
-            hex_to_rgb(hex);
+            int err = hex_to_rgb(hex);
+
+            if (err != 0)
+            {
+                printf("Error converting to RGB value.\n");
+                return 3;
+            }
         }
         else
         {
