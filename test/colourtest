@@ -1,0 +1,75 @@
+#!/bin/bash
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+basic() {
+    BASICRGB=$(colour -rgb 255 255 255 -hex)
+    if [[ $BASICRGB != '#FFFFFF' ]]; then
+        echo "********************"
+        echo -e "${RED}BASIC RGB failed.${NC}"
+        echo "$BASICRGB"
+    else 
+        echo "********************"
+        echo -e "${GREEN}BASIC RGB passed.${NC}"
+    fi
+
+    BASICHEX=$(colour -hex FFFFFF -rgb)
+    if [[ $BASICHEX != '(255, 255, 255)' ]]; then
+        echo "********************"
+        echo -e "${RED}BASIC HEX failed.${NC}"
+        echo "$BASICHEX"
+    else 
+        echo "********************"
+        echo -e "${GREEN}BASIC HEX passed.${NC}"
+    fi
+}
+
+hex_to_rgb() {
+    TOOBIG=$(colour -hex GGGGGG -rgb)
+    if [[ $TOOBIG != 'Invalid hex code.' ]]; then
+        echo "********************"
+        echo -e "${RED}HEX TO RGB TOO BIG failed.${NC}"
+        echo "$TOOBIG"    
+    else 
+        echo "********************"
+        echo -e "${GREEN}HEX TO RGB TOO BIG passed.${NC}"
+    fi
+
+    ZEROS=$(colour -hex 000000 -rgb)
+    if [[ $ZEROS != '(0, 0, 0)' ]]; then
+        echo "********************"
+        echo -e "${RED}HEX TO RGB ZEROS failed.${NC}"
+        echo "$ZEROS"  
+    else 
+        echo "********************"
+        echo -e "${GREEN}HEX TO RGB ZEROS passed.${NC}"
+    fi
+}
+
+rgb_to_hex() {
+    TOOBIG=$(colour -rgb 256 256 256 -hex)
+    if [[ $TOOBIG != 'Invalid RGB code.' ]]; then
+        echo "********************"
+        echo -e "${RED}RGB TO HEX TOO BIG failed.${NC}"
+        echo "$TOOBIG"  
+    else 
+        echo "********************"
+        echo -e "${GREEN}RGB TO HEX TOO BIG passed.${NC}"
+    fi
+
+    ZEROS=$(colour -rgb 0 0 0 -hex)
+    if [[ $ZEROS != '#000000' ]]; then 
+        echo "********************"
+        echo -e "${RED}RGB TO HEX ZEROS failed${NC}."
+        echo "$ZEROS"  
+    else 
+        echo "********************"
+        echo -e "${GREEN}RGB TO HEX ZEROS passed.${NC}"
+    fi
+}
+
+basic
+hex_to_rgb
+rgb_to_hex
+
+exit 0
