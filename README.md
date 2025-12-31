@@ -25,7 +25,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 -->
-[![project_license][license-shield]][license-url]
+[![GPL-3.0 License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -34,10 +34,9 @@
 <br />
 <div align="center">
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Colour Converter</h3>
 
   <p align="center">
-    project_description
     <br />
     <a href="https://github.com/tharnyelilvannan/ColourConversion"><strong>Explore the docs »</strong></a>
     <br />
