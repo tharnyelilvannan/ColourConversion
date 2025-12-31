@@ -93,7 +93,6 @@ int main(int argc, char *argv[])
         else
         {
             printf("Incorrect number of arguments.\n");
-            help();
             exit(1);
         }
         exit(0);

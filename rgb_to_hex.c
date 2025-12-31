@@ -99,8 +99,7 @@ char dec_to_hex(int num)
         a = 'F';
         break;
     default:
-        a = 'T';
-        break;
+        exit(7);
     }
 
     return a;

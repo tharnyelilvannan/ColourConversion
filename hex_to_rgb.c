@@ -12,7 +12,7 @@ int hex_to_rgb(char *hex)
 
     if (red == -1 || green == -1 || blue == -1)
     {
-        return -1;
+        exit(7);
     }
 
     printf("(%d, %d, %d)\n", red, green, blue);
