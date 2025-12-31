@@ -171,7 +171,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the project_license. See `LICENSE.txt` for more information.
+Distributed under the GNU. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -206,7 +206,7 @@ Project Link: [https://github.com/tharnyelilvannan/ColourConversion](https://git
 [issues-shield]: https://img.shields.io/github/issues/tharnyelilvannan/ColourConversion.svg?style=for-the-badge
 [issues-url]: https://github.com/tharnyelilvannan/ColourConversion/issues
 [license-shield]: https://img.shields.io/github/license/tharnyelilvannan/ColourConversion.svg?style=for-the-badge
-[license-url]: https://github.com/tharnyelilvannan/ColourConversion/blob/main/LICENSE.txt
+[license-url]: https://github.com/tharnyelilvannan/ColourConversion/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/tharani-elilvannan
 [product-screenshot]: images/screenshot.png
