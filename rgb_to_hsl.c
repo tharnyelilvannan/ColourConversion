@@ -21,6 +21,7 @@ int rgb_to_hsl(double r, double g, double b)
     {
         s = 0;
         h = 0;
+        printf("(%d, %.2f, %.2f)\n", (int)round(h), s, l);
         return 0;
     }
 
@@ -53,7 +54,10 @@ int rgb_to_hsl(double r, double g, double b)
         h = h + 360;
     }
 
-    printf("(%f, %f, %f)\n", h, s, l);
+    s = s * 100;
+    l = l * 100;
+
+    printf("(%d, %.2f, %.2f)\n", (int)round(h), s, l);
     return 0;
 }
 
@@ -75,8 +79,6 @@ double *min(double *a, double *b, double *c)
         min = c;
     }
 
-    printf("%f\n", *min);
-
     return min;
 }
 
@@ -97,8 +99,6 @@ double *max(double *a, double *b, double *c)
     {
         max = c;
     }
-
-    printf("%f\n", *max);
 
     return max;
 }

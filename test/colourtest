@@ -88,8 +88,34 @@ rgb_to_hex() {
     fi
 }
 
+hsl_to_rgb() {
+    ZEROS=$(colour -hsl 0 0 0 -rgb)
+    if [[ $ZEROS != '(0, 0, 0)' ]]; then 
+        echo "********************"
+        echo -e "${RED}HSL TO RGB ZEROS failed${NC}."
+        echo "$ZEROS"  
+    else 
+        echo "********************"
+        echo -e "${GREEN}HSL TO RGB ZEROS passed.${NC}"
+    fi
+}
+
+rgb_to_hsl() {
+    ZEROS=$(colour -rgb 0 0 0 -hsl)
+    if [[ $ZEROS != '(0, 0.00, 0.00)' ]]; then 
+        echo "********************"
+        echo -e "${RED}RGB TO HSL ZEROS failed${NC}."
+        echo "$ZEROS"  
+    else 
+        echo "********************"
+        echo -e "${GREEN}RGB TO HSL ZEROS passed.${NC}"
+    fi
+}
+
 basic
 hex_to_rgb
 rgb_to_hex
+hsl_to_rgb
+rgb_to_hsl
 
 exit 0
