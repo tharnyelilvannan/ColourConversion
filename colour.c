@@ -62,27 +62,18 @@ int main(int argc, char *argv[])
         {
             if (strcmp(argv[5], "-hex") == 0)
             {
-                char *r_end;
-                char *g_end;
-                char *b_end;
+                int r = rgb_verify(argv[2]);
+                int g = rgb_verify(argv[3]);
+                int b = rgb_verify(argv[4]);
 
-                int r = strtol(argv[2], &r_end, 10);
-                int g = strtol(argv[3], &g_end, 10);
-                int b = strtol(argv[4], &b_end, 10);
-
-                if (r > 255 || r < 0 || g > 255 || g < 0 || b > 255 || b < 0)
-                {
-                    printf("Invalid RGB code.");
-                    exit(5);
-                }
-
-                int err = rgb_to_hex(r, g, b);
-
-                if (err != 0)
-                {
-                    printf("Error converting to hex value.\n");
-                    exit(3);
-                }
+                rgb_to_hex(r, g, b);
+            }
+            else if (strcmp(argv[5], "-hsl") == 0)
+            {
+                int r = rgb_verify(argv[2]);
+                int g = rgb_verify(argv[3]);
+                int b = rgb_verify(argv[4]);
+                rgb_to_hsl((double)r, (double)g, (double)b);
             }
             else
             {
@@ -122,4 +113,18 @@ int main(int argc, char *argv[])
     }
 
     exit(0);
+}
+
+int rgb_verify(char *val)
+{
+    char *val_end;
+    int rgb = strtol(val, &val_end, 10);
+
+    if (rgb > 255 || rgb < 0)
+    {
+        printf("Invalid RGB code.");
+        exit(5);
+    }
+
+    return rgb;
 }
