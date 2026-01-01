@@ -17,8 +17,7 @@ int main(int argc, char *argv[])
     {
         help();
     }
-
-    if (strcmp(argv[1], "-hex") == 0)
+    else if (strcmp(argv[1], "-hex") == 0)
     {
         if (strcmp(argv[3], "-rgb") == 0)
         {
@@ -67,9 +66,9 @@ int main(int argc, char *argv[])
                 char *g_end;
                 char *b_end;
 
-                long int r = strtol(argv[2], &r_end, 10);
-                long int g = strtol(argv[3], &g_end, 10);
-                long int b = strtol(argv[4], &b_end, 10);
+                int r = strtol(argv[2], &r_end, 10);
+                int g = strtol(argv[3], &g_end, 10);
+                int b = strtol(argv[4], &b_end, 10);
 
                 if (r > 255 || r < 0 || g > 255 || g < 0 || b > 255 || b < 0)
                 {
@@ -95,6 +94,32 @@ int main(int argc, char *argv[])
             printf("Incorrect number of arguments.\n");
             exit(1);
         }
-        exit(0);
     }
+    else if (strcmp(argv[1], "-hsl") == 0)
+    {
+        if (argc == 6)
+        {
+            if (strcmp(argv[5], "-rgb") == 0)
+            {
+                double h = atof(argv[2]);
+                double s = atof(argv[3]);
+                double l = atof(argv[4]);
+
+                int err = hsl_to_rgb(h, s, l);
+
+                if (err != 0)
+                {
+                    printf("Error converting to RGB value.\n");
+                    exit(3);
+                }
+            }
+        }
+    }
+    else
+    {
+        printf("Incorrect flag.\n");
+        exit(1);
+    }
+
+    exit(0);
 }
